@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Inicio de Sesion</title>
+    <title>Inicio de Sesión</title>
 </head>
 <body>
-    <div class = contenedor>
-        <h1>INICIO DE SESION</h1>
+    <div class="contenedor">
+        <h1>INICIO DE SESIÓN</h1>
     </div>
-    <div class = contenedor1>
-        <laberl>NOMBRE DE USUARIO</laberl><br>
-         <input type="text" class="input" id="usr"><br><br>
-         <label>CONTRASEÑA</label><br>
-         <input type="password" class="input" id="conusr"><br><br>
-         <button type="button" id="btIni">INGRESAR</button><br>
-         <div class="divider">
-            <span>INICIA SESION CON</span>
-         </div>
-         <div class = btnServicios>
+
+    <div class="contenedor1">
+        <label>NOMBRE DE USUARIO</label><br>
+        <input type="text" class="input" id="usr"><br><br>
+
+        <label>CONTRASEÑA</label><br>
+        <input type="password" class="input" id="conusr"><br><br>
+
+        <button type="button" id="btIni">INGRESAR</button><br>
+
+        <div class="divider">
+            <span>INICIA SESIÓN CON</span>
+        </div>
+
+        <div class="btnServicios">
             <button type="button" id="btnG">GOOGLE</button>
             <button type="button" id="btnM">MICROSOFT</button><br>
-         </div>
-         <div class="divider">
-            <span>¿NO TIENES CUENTA?</span>
-         </div>
-         <button type="button" id="btCre">CREAR CUENTA</button>
-         
+        </div>
 
-    
+        <div class="divider">
+            <span>¿NO TIENES CUENTA?</span>
+        </div>
+        <button type="button" id="btCre">CREAR CUENTA</button>
+    </div>
+
+    <!-- Scripts al final -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
