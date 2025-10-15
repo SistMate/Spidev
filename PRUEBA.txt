@@ -1,0 +1,46 @@
+const SUPABASE_URL = "https://ozvnjuibsebvsovvfmjq.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96dm5qdWlic2VidnNvdnZmbWpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3ODU2MzgsImV4cCI6MjA3NTM2MTYzOH0.GSx2Gc2P_JOv2AghYYjDBklH1_KzYgZXgWirAPxvTkI"; // reemplaza con tu anon key
+//const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const btnIniciar = document.getElementById("btIni");
+    const inputUsuario = document.getElementById("usr");
+    const inputContrasena = document.getElementById("conusr");
+
+    btnIniciar.addEventListener("click", async () => {
+        const usuario = inputUsuario.value.trim();
+        const contrasena = inputContrasena.value.trim();
+
+        if (!usuario || !contrasena) {
+            alert("INGRESA NOMBRE Y CONTRASEÑA");
+            return;
+        }
+
+        try {
+            const { data, error } = await supabaseClient
+                .from("usuarios")
+                .select("*")
+                .eq("nombre_usuario", usuario)
+                .eq("contrasena", contrasena)
+                .single();
+
+            console.log("Data recibida:", data);
+            console.log("Error recibido:", error);
+
+            if (error) {
+                alert("ERROR" + error.message);
+                return;
+            }
+
+            if (!data) {
+                alert("USUARIO O CONTRASEÑA INCORRECTOS");
+                return;
+            }
+
+            alert(`✅ Bienvenido ${data.nombre_completo}`);
+        } catch (err) {
+            console.error("Error real al iniciar sesión:", err);
+            alert("ERROR AL INICIAR SESION" + err.message);
+        }
+    });
+});
